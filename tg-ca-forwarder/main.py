@@ -127,6 +127,10 @@ async def main():
         try:
             message_text = event.message.text or event.message.message or ""
 
+            # Debug: log every message received
+            logger.info(f"Message received from chat {event.chat_id}")
+            logger.debug(f"Message content preview: {message_text[:100] if message_text else '(empty)'}...")
+
             if not message_text:
                 return
 
@@ -134,7 +138,7 @@ async def main():
             addresses = extract_solana_addresses(message_text)
 
             if not addresses:
-                logger.debug("No Solana addresses found in message")
+                logger.info("No Solana addresses found in message")
                 return
 
             logger.info(f"Found {len(addresses)} Solana address(es)")
