@@ -16,7 +16,6 @@ from dotenv import load_dotenv
 from telethon import TelegramClient, events
 from telethon.errors import (
     AuthKeyUnregisteredError,
-    ConnectionError,
     FloodWaitError,
     SessionPasswordNeededError,
 )
