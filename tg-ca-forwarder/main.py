@@ -125,7 +125,7 @@ async def main():
     async def handler(event):
         """Handle new messages from the source chat."""
         try:
-            message_text = event.message.text or event.message.message or ""
+            message_text = event.message.raw_text or ""
 
             # Debug: log every message received
             logger.info(f"Message received from chat {event.chat_id}")
