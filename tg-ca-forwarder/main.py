@@ -121,7 +121,7 @@ async def main():
     source_chat = await resolve_chat_id(client, SOURCE_CHAT)
     destination_chat = await resolve_chat_id(client, DESTINATION_CHAT)
 
-    @client.on(events.NewMessage(chats=source_chat))
+    @client.on(events.NewMessage(chats=source_chat, incoming=True, outgoing=True))
     async def handler(event):
         """Handle new messages from the source chat."""
         try:
